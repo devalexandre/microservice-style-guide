@@ -18,11 +18,11 @@ In short, the microservice architectural style is an approach to developing a si
 
 Microservices provide benefits | …but come with costs 
 --- | --- |
-- Easy deployment and process automation, keeping microservices on separate servers. | Higher infrastructure cost, as microservices must be separated|
-- Reuse of microservices for various applications | Team maturity, to execute the development correctly |
-- Diversity of technologies, being able to write each microservice in a different language | If you use multiple languages, you will find it difficult to maintain all microservices|
-- Easy maintenance of the microservice, without major impacts on other applications | high dependency on a Gateway API |
-- Speed in communication via broker, using messaging |
+- Easy deployment and process automation, keeping microservices on separate servers. | Higher infrastructure cost, as microservices must be separated
+- Reuse of microservices for various applications | Team maturity, to execute the development correctly 
+- Diversity of technologies, being able to write each microservice in a different language | If you use multiple languages, you will find it difficult to maintain all microservices
+- Easy maintenance of the microservice, without major impacts on other applications | high dependency on a Gateway API 
+- Speed in communication via broker, using messaging 
 
 ## What not to do
 Microservices, have a high speed due to efficient communication via broker, even the Gateway communicates in this way, when leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of apis rest microservices are not apis rest
