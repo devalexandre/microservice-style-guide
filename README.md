@@ -8,7 +8,7 @@ In short, the microservice architectural style is an approach to developing a si
 
 ## Definition of microservices
 
-- Comunicação via broker, entre um ou mais microsserviços
+- Communication via mediator, between one or more microservices
 - Gateway API for endpoints, not in the microservice itself
 - Decentralized Data Management
 - Autonomous and independent structure
@@ -20,7 +20,9 @@ In short, the microservice architectural style is an approach to developing a si
 
 
 ## What not to do
-Microservices, have a high speed due to efficient communication via broker, even the Gateway communicates in this way, when leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of apis rest microservices are not apis rest
+Microservices have a high speed due to efficient communication via broker. 
+Even the Gateway communicates in this way. 
+When leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of apis rest microservices are not apis rest
 
 # Creating a microservice 
 
