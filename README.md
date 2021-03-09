@@ -21,8 +21,8 @@ In short, the microservice architectural style is an approach to developing a si
 
 ## What not to do
 Microservices have a high speed due to efficient communication via broker. 
-Even the Gateway communicates in this way. 
-When leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of apis rest microservices are not apis rest
+Even the Gateway communicates in this way.
+When leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of a rest API (microservices are not rest API’s).
 
 # Creating a microservice 
 
