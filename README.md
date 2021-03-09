@@ -28,7 +28,7 @@ When leaving this structure using HTTP for communication between microservices, 
 
 ## CoteJS
 
-CoteJs is a very small and simple library that allows us to communicate using TCP between various microservices in a very simple and fast way
+CoteJs is a small library that allows us to communicate using TCP between various microservices in a very simple and fast way.
 
 [CoteJS](https://github.com/dashersw/cote)
 ### example
@@ -55,7 +55,7 @@ const UserService = new cote.Responder({name:'UserService'})
 ```
 
 ## Polka Api Gateway
-Using the broker concept we have polka a very simple and fast library that can be used to create our gateway very quickly, making calls via broker in our microservices
+Using the broker concept, we have Polka - a very simple and fast library that can be used to create our gateway.
 
 [PolkaJS](https://github.com/lukeed/polka)
 
