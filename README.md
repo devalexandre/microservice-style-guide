@@ -16,8 +16,6 @@ In short, the microservice architectural style is an approach to developing a si
 
 ## When to use microservices
 
-Microservices provide benefits | …but come with costs 
---- | --- |
 ![alt text](img/pros-costs.png)
 
 
