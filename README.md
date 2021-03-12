@@ -20,6 +20,15 @@ In short, the microservice architectural style is an approach to developing a si
 
 
 ## What not to do
+
+*I'm pretty sure that when you were sold the vision of microservices you weren't also sold the idea wasting time and CPU resources parsing an object, to text, only to collect it on the other side as text and back to an object.
+But if you're using REST for communication between micro-services, that's most likely what you're doing. It's slow. Sure in human time a few milliseconds aren't that bad, but when you do this several times for each interaction an end user makes, and do it thousands or millions of times a day, it really builds up and takes a toll.
+It's slow because it wasn't designed to be used thousands or millions of times a day, it was designed to be used once during a single API call at the edge of your system and to an external system that is not in your control.*
+
+**Mahmoud Swehli**
+
+[stretch dont-use-rest-for-micro-services](https://hackernoon.com/dont-use-rest-for-micro-services-ju7k328m)
+
 Microservices have a high speed due to efficient communication via broker. 
 Even the Gateway communicates in this way.
 When leaving this structure using HTTP for communication between microservices, it loses speed and ends up falling into the concept of a rest API (microservices are not rest API’s).
