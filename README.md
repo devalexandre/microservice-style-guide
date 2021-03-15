@@ -24,6 +24,7 @@ There are several articles on ‘internet’ including large companies, showing 
   - [Polka Api Gateway](https://github.com/devalexandre/microservice-style-guide#polka-api-gateway)
 - [What's BFF ?](https://github.com/devalexandre/microservice-style-guide#whats-bff-pattern-)
     - [Multiples BFF](https://github.com/devalexandre/microservice-style-guide#multiples-bff)
+    - [BFF not is  Api Gateway](https://github.com/devalexandre/microservice-style-guide#bff-not-is-api-gateway)
 
 
 ## What not to do
@@ -209,7 +210,7 @@ The disadvantage of this approach is that we will have 2 locations to provide ma
 
 ![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/microsevice2-bff.png?raw=true)
 
-## BFF in Api Gateway
+## BFF not is  Api Gateway
 
 And we have the last approach which is to use the Api Gateway itself as a BFF, let's analyze this choice more closely
 
@@ -221,8 +222,6 @@ It is also worth remembering that if we use BFF as our API Gateway, we will have
 
 ![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/microsevice3-bff-error.png?raw=true)
 
-
-[stretch dont-use-rest-for-micro-services](https://hackernoon.com/dont-use-rest-for-micro-services-ju7k328m)
 
 ## References
 [communication-over-microservices](https://hackernoon.com/communication-over-microservices-109k3ywh)
