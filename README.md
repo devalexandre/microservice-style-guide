@@ -26,8 +26,11 @@ There are several articles on ‘internet’ including large companies, showing 
     - [Multiples BFF](https://github.com/devalexandre/microservice-style-guide#multiples-bff)
     - [BFF not is  Api Gateway](https://github.com/devalexandre/microservice-style-guide#bff-not-is-api-gateway)
 - [Service registry Pattern](https://github.com/devalexandre/microservice-style-guide#service-registry-pattern)
-    - [Consul Example](https://github.com/devalexandre/microservice-style-guide#consul-example)
-    
+    - [Registration](https://github.com/devalexandre/microservice-style-guide#registration)
+      - [Eureka Example](https://github.com/devalexandre/microservice-style-guide#eureka-example)
+  - [Discovery](https://github.com/devalexandre/microservice-style-guide#discovery)
+      - [Consul Example](https://github.com/devalexandre/microservice-style-guide#consul-example)
+
 
 ## What not to do
 
@@ -235,32 +238,46 @@ Since service registry is the database of services available, it must be highly 
 - Discovery — whenever client needs to interact with service, client would lookup for service details or discover service on Service Registry.
 
 ## Registration
-In Microservices world, services go up/down with developers constantly deploying changes or the service instances scale up/down based on requirement.
+In this method, the microservice registers itself when it has just gone up, so we have information such as port, name, and endpoint.
 
-While this happens, it is important to constantly keep up-to date details of services. 
+An implementation that can be done in this model would be using Eureka
 
-And this is where registration comes into play. There are two flavours of service registration:
+### Eureka Example
+```javascript
 
-### Self-registration
-The services own the responsibility of registering itself with Service Registry on startup and de-register on shutdown. 
+const Eureka = require('eureka-js-client').Eureka;
+ 
+// example configuration
+const client = new Eureka({
+  // application instance information
+  instance: {
+    app: 'jqservice',
+    hostName: 'localhost',
+    ipAddr: '127.0.0.1',
+    port: 8080,
+    vipAddress: 'jq.test.something.com',
+    dataCenterInfo: {
+      name: 'MyOwn',
+    },
+  },
+  eureka: {
+    // eureka server host / port
+    host: '192.168.99.100',
+    port: 32768,
+  },
+});
+```
 
-This enables services to be self-aware of their state. Also, has a drawback of services being tightly coupled with Service Registry.
+## Discovery
 
-### Third-party Registration
-As opposed to self-registration, Thrid-party registration allows delegation of service registration/de-registration task to Third-party registrar (service manager) component. 
+Discovery is very different, we have a client that monitors our microservices, and he will give us information about their status
 
-On service instance start-up, service manager is responsible for registering the service with Service Registry. 
-
-Similarly, it de-registers on service shutdown. With this option, service resilience can be better handled as service manager can handle these requests more elegantly than self-registration where a service can abruptly go down with Service Registry not being aware. 
-
-Service manger being one of the important components of microservices architecture, it needs to be highly available
-
+### Consul Example
 
 There are several registration services, we will address here a very simple one to implement the Consul
 
 [consul](https://www.consul.io/docs/discovery/services)
 
-### Consul Example
 ````json
 {
   "service": {
