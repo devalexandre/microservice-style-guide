@@ -25,7 +25,9 @@ There are several articles on ‘internet’ including large companies, showing 
 - [What's BFF ?](https://github.com/devalexandre/microservice-style-guide#whats-bff-pattern-)
     - [Multiples BFF](https://github.com/devalexandre/microservice-style-guide#multiples-bff)
     - [BFF not is  Api Gateway](https://github.com/devalexandre/microservice-style-guide#bff-not-is-api-gateway)
-
+- [Service registry Pattern](https://github.com/devalexandre/microservice-style-guide#service-registry-pattern)
+    - [Consul Example](https://github.com/devalexandre/microservice-style-guide#consul-example)
+    
 
 ## What not to do
 
@@ -222,6 +224,63 @@ It is also worth remembering that if we use BFF as our API Gateway, we will have
 
 ![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/microsevice3-bff-error.png?raw=true)
 
+# Service registry Pattern
+
+Service Registry is collective information of services along with related details including, the location of service and number of instances. 
+
+Since service registry is the database of services available, it must be highly available. There are two stages of interaction with Service Registry-
+
+- Registration — whenever a new service or service instance scales in/out, it needs to register/de-register itself with Service Registry.
+
+- Discovery — whenever client needs to interact with service, client would lookup for service details or discover service on Service Registry.
+
+## Registration
+In Microservices world, services go up/down with developers constantly deploying changes or the service instances scale up/down based on requirement.
+
+While this happens, it is important to constantly keep up-to date details of services. 
+
+And this is where registration comes into play. There are two flavours of service registration:
+
+### Self-registration
+The services own the responsibility of registering itself with Service Registry on startup and de-register on shutdown. 
+
+This enables services to be self-aware of their state. Also, has a drawback of services being tightly coupled with Service Registry.
+
+### Third-party Registration
+As opposed to self-registration, Thrid-party registration allows delegation of service registration/de-registration task to Third-party registrar (service manager) component. 
+
+On service instance start-up, service manager is responsible for registering the service with Service Registry. 
+
+Similarly, it de-registers on service shutdown. With this option, service resilience can be better handled as service manager can handle these requests more elegantly than self-registration where a service can abruptly go down with Service Registry not being aware. 
+
+Service manger being one of the important components of microservices architecture, it needs to be highly available
+
+
+There are several registration services, we will address here a very simple one to implement the Consul
+
+[consul](https://www.consul.io/docs/discovery/services)
+
+### Consul Example
+````json
+{
+  "service": {
+    "name": "api-gateway",
+    "tags": [
+      "api-gateway"
+    ],
+    "port": 3000,
+    "check": {
+      "args": [
+        "curl",
+        "localhost"
+      ],
+      "interval": "10s"
+    }
+  }
+}
+````
+
+That way too, we will know the health of each microservice, using the Consul's own API, or using its UI.
 
 ## References
 [communication-over-microservices](https://hackernoon.com/communication-over-microservices-109k3ywh)
@@ -231,3 +290,7 @@ It is also worth remembering that if we use BFF as our API Gateway, we will have
 [the-api-gateway-pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/direct-client-to-microservice-communication-versus-the-api-gateway-pattern)
 
 [apigateway](https://microservices.io/patterns/apigateway.html)
+
+[microservices.io](https://microservices.io/patterns/service-registry.html)
+
+[Consul](https://www.consul.io/docs/discovery/checks)
