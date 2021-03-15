@@ -1,6 +1,31 @@
 # Microservice-style-guide
 There are several articles on ‘internet’ including large companies, showing their microservices using REST, this guide has how to show some good practices and standards so that you have a microservice architecture that is the best possible, totally decoupled and scalable.
 
+# Symmary
+
+- [What not to do](https://github.com/devalexandre/microservice-style-guide#what-not-to-do)
+- [HTTP Vs Broker](https://github.com/devalexandre/microservice-style-guide#http-vs-broker)
+- [Definition of microservices](https://github.com/devalexandre/microservice-style-guide#definition-of-microservices)
+- [Publish-subscriber Pattern](https://github.com/devalexandre/microservice-style-guide#publish-subscriber-pattern)
+  - [Publisher](https://github.com/devalexandre/microservice-style-guide#publisher)
+  - [Subscriber](https://github.com/devalexandre/microservice-style-guide#subscriber)
+  - [Input Channel](https://github.com/devalexandre/microservice-style-guide#input-channel)
+  - [Output Channel](https://github.com/devalexandre/microservice-style-guide#output-channel)
+  - [Message Broker](https://github.com/devalexandre/microservice-style-guide#message-broker)
+  - [CoteJS example](https://github.com/devalexandre/microservice-style-guide#cotejs)
+- [Choosing Message Broker](https://github.com/devalexandre/microservice-style-guide#choosing-message-broker)
+- [Comparisons Between Message Broker](https://github.com/devalexandre/microservice-style-guide#comparisons-between-message-broker)
+  - [RabbitMQ](https://github.com/devalexandre/microservice-style-guide#rabbitmq)
+  - [Kafka](https://github.com/devalexandre/microservice-style-guide#kafka) 
+  - [Nats](https://github.com/devalexandre/microservice-style-guide#nats)
+  - [TCP](https://github.com/devalexandre/microservice-style-guide#tcp)
+  - [Redis](https://github.com/devalexandre/microservice-style-guide#Redis)
+- [What is the API Gateway pattern?](https://github.com/devalexandre/microservice-style-guide#what-is-the-api-gateway-pattern)
+  - [Polka Api Gateway](https://github.com/devalexandre/microservice-style-guide#polka-api-gateway)
+- [What's BFF ?](https://github.com/devalexandre/microservice-style-guide#whats-bff-pattern-)
+    - [Multiples BFF](https://github.com/devalexandre/microservice-style-guide#multiples-bff)
+
+
 ## What not to do
 
 *I'm pretty sure that when you were sold the vision of microservices you weren't also sold the idea wasting time and CPU resources parsing an object, to text, only to collect it on the other side as text and back to an object.
@@ -137,10 +162,6 @@ It also communicates with microservices using a broker
 
 When splitting the API Gateway tier into multiple API Gateways, if your application has multiple client apps, that can be a primary pivot when identifying the multiple API Gateways types, so that you can have a different facade for the needs of each client app. 
 
-This case is a pattern named "Backend for Frontend" (BFF) where each API Gateway can provide a different API tailored for each client app type, possibly even based on the client form factor by implementing specific adapter code which underneath calls multiple internal microservices, as shown in the following image:
-
-![bff](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/architect-microservice-container-applications/media/direct-client-to-microservice-communication-versus-the-api-gateway-pattern/multiple-custom-api-gateways.png)
-
 
 ## Polka Api Gateway
 Using the broker concept, we have Polka - a very simple and fast library that can be used to create our gateway.
@@ -170,7 +191,7 @@ route
 ```
 
 
-# What's BFF ?
+# What's BFF Pattern?
 
 BBF (Back For Front)  is the microservice responsible for processing information, before it is consumed by the frontend or mobile
 
