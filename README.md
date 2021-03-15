@@ -172,8 +172,33 @@ route
 
 # What's BFF ?
 
+BBF (Back For Front)  is the microservice responsible for processing information, before it is consumed by the frontend or mobile
+
+It allows us to have a better treatment of data by removing some business rules from our microservice, thus leaving it more decoupled from the application and facilitating its re-usability.
+
+
 ![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/img.png?raw=true)
 
+## Multiples BFF
+We can also use multiple BFFs, each of them for a specific microservice, so we have total isolation from the business rule of each microservice.
+
+The disadvantage of this approach is that we will have 2 locations to provide maintenance, the BFF and the microservice itself.
+
+** no pain no gain ** 
+
+![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/microsevice2-bff.png?raw=true)
+
+## BFF in Api Gateway
+
+And we have the last approach which is to use the Api Gateway itself as a BFF, let's analyze this choice more closely
+
+Api Gateway is a pattern, where you have all the microservices entries in one place, including the authentication treatment using the idea of ​​middleware
+
+BFF is also a pattern, where data processing is decoupled, so we have simpler microservices
+
+It is also worth remembering that if we use BFF as our API Gateway, we will have to deal with each, response of each microservice, this in the short term does not have as much impact, but in the long term, maintenance can be difficult.
+
+![BFF](https://github.com/devalexandre/microservice-style-guide/blob/main/img/microsevice3-bff-error.png?raw=true)
 
 
 [stretch dont-use-rest-for-micro-services](https://hackernoon.com/dont-use-rest-for-micro-services-ju7k328m)
