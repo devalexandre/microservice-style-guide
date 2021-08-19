@@ -1,0 +1,15 @@
+# YAML 1.2
+---
+authors: 
+  -
+    family-names: "Evangelista de Souza"
+    given-names: Alexandre
+cff-version: "0.0.1"
+keywords: 
+  - Microservices
+  - NodeJs
+license: MIT
+message: "There are several articles on ‘internet’ including large companies, showing their microservices using REST, this guide has how to show some good practices and standards so that you have a microservice architecture that is the best possible, totally decoupled and scalable."
+title: "Microservice Style Guide"
+version: "0.0.1"
+...
