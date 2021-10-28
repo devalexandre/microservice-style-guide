@@ -306,7 +306,7 @@ When using Microservices, you need to be aware that all services have a separate
 This allows you to, scale one service at a time.
 
 When you use a service separately, you may use different servers.
-Example: to have one service in the AWS and another service in Heruko and API gateway in GCP.
+Example: to have a service on AWS and another service on Heruko and API gateway on GCP.
 Remember that all communications are done through messaging.
 
 ![docker](https://github.com/devalexandre/microservice-style-guide/blob/main/img/docker-services.png?raw=true)
