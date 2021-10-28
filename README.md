@@ -30,6 +30,7 @@ There are several articles on ‘internet’ including large companies, showing 
       - [Eureka Example](https://github.com/devalexandre/microservice-style-guide#eureka-example)
   - [Discovery](https://github.com/devalexandre/microservice-style-guide#discovery)
       - [Consul Example](https://github.com/devalexandre/microservice-style-guide#consul-example)
+- [Deploy](https://github.com/devalexandre/microservice-style-guide#deploy)
 
 
 ## What not to do
@@ -298,6 +299,16 @@ There are several registration services, we will address here a very simple one 
 ````
 
 That way too, we will know the health of each microservice, using the Consul's own API, or using its UI.
+
+# Deploy
+
+When using Microservices, you need to be aware that all services have a separate job, so you have to make a container for each service.
+
+This allows you to, scale one service at a time.
+
+![docker](https://github.com/devalexandre/microservice-style-guide/blob/main/img/docker-services.png?raw=true)
+
+
 
 ## References
 [communication-over-microservices](https://hackernoon.com/communication-over-microservices-109k3ywh)
