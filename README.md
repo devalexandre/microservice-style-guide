@@ -1,7 +1,7 @@
 # Microservice-style-guide
 There are several articles on ‘internet’ including large companies, showing their microservices using REST, this guide has how to show some good practices and standards so that you have a microservice architecture that is the best possible, totally decoupled and scalable.
 
-# Symmary
+# Summary
 
 - [What not to do](https://github.com/devalexandre/microservice-style-guide#what-not-to-do)
 - [HTTP Vs Broker](https://github.com/devalexandre/microservice-style-guide#http-vs-broker)
@@ -303,8 +303,11 @@ That way too, we will know the health of each microservice, using the Consul's o
 # Deploy
 
 When using Microservices, you need to be aware that all services have a separate job, so you have to make a container for each service.
-
 This allows you to, scale one service at a time.
+
+When you use a service separately, you may use different servers.
+Example: to have one service in the AWS and another service in Heruko and API gateway in GCP.
+Remember that all communications are done through messaging.
 
 ![docker](https://github.com/devalexandre/microservice-style-guide/blob/main/img/docker-services.png?raw=true)
 
