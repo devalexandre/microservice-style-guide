@@ -68,6 +68,33 @@ In fact, Martin Thomson once said, “Synchronous communication is the crystal m
 
 When invoking a REST service, your service is blocked waiting for a response. This hurts application performance because this thread could be processing other requests. Think of it this way: What if a bartender took a drink order, made the cocktail and waited patiently for the patron to finish the drink before moving on to the next customer? That customer would have a great experience, but all of the other customers would be thirsty and quite unhappy. The bar could add additional bartenders, but would need one for each customer. Obviously, it would be expensive for the bar, and impossible to scale up and down as patrons came and went. In many ways, these same challenges occur when threads are blocked in applications waiting for RESTful services to respond. Threads are expensive and difficult to manage, much like bartenders!
 
+### Monolithic to Microservice
+
+When having a monolithic app, you use a load balancer for balance charge in pods.
+But you can't load the balance for each feature.
+
+![monolitic](./img/monolitic.png)
+
+For scaling a monolithic application, you can update the replication  number  
+
+![monolitic](./img/monolitic-pods.png)
+
+But our app is slow in some features , that way every application is slow.
+To resolve it, we'll alter to small services.
+
+![microservices](./img/microservices.png)
+
+Now we can scale  for each feature
+
+![microservice scalable](./img/microservices_scable.png)
+
+**It is essential to keep in your mind that each microservice must have only one functionality, to meet the following requirements**
+
+- easy maintenance
+- simple code
+- vertical and horizontal scalability
+- small and objective codes
+
 
 ## Publish-subscriber Pattern
 When any events occur in the services it may need to communicate with other services to complete the job. Publisher and subscriber model is an asynchronous pattern which reduces the coupling in the distributed system.
