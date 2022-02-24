@@ -6,6 +6,7 @@ There are several articles on ‘internet’ including large companies, showing 
 - [What not to do](https://github.com/devalexandre/microservice-style-guide#what-not-to-do)
 - [HTTP Vs Broker](https://github.com/devalexandre/microservice-style-guide#http-vs-broker)
 - [Definition of microservices](https://github.com/devalexandre/microservice-style-guide#definition-of-microservices)
+  - [Monolithic to Microservice](https://github.com/devalexandre/microservice-style-guide#monolithic-to-microservice)
 - [Publish-subscriber Pattern](https://github.com/devalexandre/microservice-style-guide#publish-subscriber-pattern)
   - [Publisher](https://github.com/devalexandre/microservice-style-guide#publisher)
   - [Subscriber](https://github.com/devalexandre/microservice-style-guide#subscriber)
